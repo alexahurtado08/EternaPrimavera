@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de productos</h1>
+<ul>
+  {% for producto in productos %}
+    <li>
+      <a href="{% url 'detalle_producto' producto.id %}">
+        {{ producto.nombre }} - {{ producto.cantidad }}g - ${{ producto.precio }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'crear_producto' %}">Agregar producto</a>
+{% endblock %}
